@@ -1,0 +1,89 @@
+Q1.Tester avec les entrées suivantes. Essayer de prévoir ce que fera chaque entrée.
+	- 001110
+	- 101 0111
+	- 012
+	- 01201201 0000 1es CX 2500 et les DS 19 c'est gén1al
+	- 0+0= la tete a toto.
+
+001110
+
+ Un nombre binaire[001110]
+
+101     0111
+
+ Un nombre binaire[101]
+	
+ Un nombre binaire[0111]
+
+012
+
+ Un nombre binaire[01]
+2
+01201201 0000 les CX 2500 et les DS 19 c'est gén1al  
+
+ Un nombre binaire[01]
+2
+ Un nombre binaire[01]
+2
+ Un nombre binaire[01]
+ 
+ Un nombre binaire[0000]
+ les CX 25
+ Un nombre binaire[00]
+ et les DS 
+ Un nombre binaire[1]
+9 c'est gén
+ Un nombre binaire[1]
+al
+0+0= la tete a toto.
+
+ Un nombre binaire[0]
++
+ Un nombre binaire[0]
+= la tete a toto.
+
+
+Q2.Reprendre la question précédente en ra joutant la troisième ligne (le '.' de début de ligne n'est
+pas une erreur).
+	- . // taper au moins un espace après le point.
+
+001110
+
+ Un nombre binaire[001110]
+
+101     0111
+
+ Un nombre binaire[101]
+
+ Un nombre binaire[0111]
+
+012
+
+ Un nombre binaire[01]
+
+01201201 0000 1es CX 2500 et les DS 19 c'est gén1al 
+
+ Un nombre binaire[01]
+
+ Un nombre binaire[01]
+
+ Un nombre binaire[01]
+
+ Un nombre binaire[0000]
+
+ Un nombre binaire[1]
+
+ Un nombre binaire[00]
+
+ Un nombre binaire[1]
+
+ Un nombre binaire[1]
+
+0+0= la tete a toto.
+
+ Un nombre binaire[0]
+
+ Un nombre binaire[0]
+
+
+
