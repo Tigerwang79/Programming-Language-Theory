@@ -1,0 +1,13 @@
+Nous avons pensez à faire suivre une phrase pour tous les numéros de places en dessous de chaque concert.
+
+Il suffirait de récuper le nombre de place, de comptabiliser le nombre de numéro de chaque place,
+pour finalement le comparer et vérifier qu'il y a bien le bon nombre de place et de numéro attribué.
+
+Nous sommes partis du principe qu'un concert peut avoir moins de 1000 places mais nous pouvons le changer dans le code si il est demandé.
+
+Exemple :  
+
+Dossier 12345678
+ANNE-CLAIRE/BERGEY
+T1114 LES-CHATS-SAUVAGES 14/04/18 19:30 2 places
+Place numéro 001 | Place numéro 002

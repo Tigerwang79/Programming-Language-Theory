@@ -1,0 +1,79 @@
+%{
+
+	#include <stdio.h>
+	#include <stdlib.h>
+	int yylex(void);
+	void yyerror(char *);
+	int nb = 0;
+	int nbLigne = 0;
+%}
+
+%union {int nb;}
+
+%token separateur;
+%token dossier;
+%token nom;
+%token codeConcert;
+%token nomConcert;
+%token date;
+%token horaire;
+%token <nb> NB_PLACES;
+%token places;
+%token PLACE;
+%token numPlace;
+%token pour;
+%token EOL;
+
+%start Billet
+
+%%
+
+Billet			: Dossier_Line EOL nom EOL Multiple_Concert EOL
+			{
+				if(nb == nbLigne)
+				{
+					printf("Tout est ok !\n");
+					return 0;
+				}
+			}
+			;
+Dossier_Line		: dossier
+			;
+Multiple_Concert  	: Multiple_Concert EOL Concert
+			| Concert
+			;
+Concert		: Concert_Line EOL Multiple_Place_Line
+			{
+				if(nb != nbLigne)
+				{
+					fprintf(stderr, "Il y a %d places avec un numéro alors qu'il en fallait %d\n", nbLigne, nb);
+					return 1;
+				}
+			}
+			;
+Concert_Line		: codeConcert nomConcert date horaire nbPlaces places
+			;
+Multiple_Place_Line	: Multiple_Place_Line separateur Place_Line
+			| Place_Line
+			;
+Place_Line		: place numPlace
+			;
+			
+nbPlaces :
+	NB_PLACES	{nb += $1;}
+	;
+
+place :
+	PLACE	{nbLigne++;}
+	;
+	
+%%
+
+void yyerror(char *s) {
+	fprintf(stderr, "%s\n", s);
+}
+
+int main(void) {
+	yyparse();
+	return 0;
+}

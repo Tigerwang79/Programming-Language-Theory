@@ -1,0 +1,61 @@
+%{
+
+	#include <stdio.h>
+	#include <stdlib.h>
+	int yylex(void);
+	void yyerror(char *);
+	int ndo = 0;
+	int nb = 0;
+
+%}
+
+%union {int num; int nb;}
+
+%token dossier
+%token <num> NUM;
+%token nom;
+%token codeConcert;
+%token nomConcert;
+%token date;
+%token horaire;
+%token <nb> NB_PLACES;
+%token places;
+%token EOL;
+
+
+
+%start Multiple_Billets
+
+%%
+
+Multiple_Billets	: Multiple_Billets EOL Billet
+			| Billet
+			{printf("\n\nLe dossier %d concerne %d places\n", ndo, nb); return 0;}
+			;
+Billet			: Dossier_Line EOL nom EOL Multiple_Concert_Line EOL
+			;
+Dossier_Line		: dossier num
+			;
+Multiple_Concert_Line  : Multiple_Concert_Line EOL Concert_Line
+			| Concert_Line
+			;
+Concert_Line		: codeConcert nomConcert date horaire nbPlaces places
+			;
+
+num :
+	NUM 	{ndo = $1;}
+	;
+nbPlaces :
+	NB_PLACES	{nb += $1;}
+	;
+			
+%%
+
+void yyerror(char *s) {
+	fprintf(stderr, "%s\n", s);
+}
+
+int main(void) {
+	yyparse();
+	return 0;
+}
